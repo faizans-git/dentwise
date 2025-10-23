@@ -11,6 +11,7 @@ import {
 import TanStackProvider from "@/components/providers/TanStackProvider";
 import "./globals.css";
 import UserSync from "@/components/UserSync";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,6 +50,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
         >
           <UserSync />
+          <Toaster />
           {children}
         </body>
       </html>
