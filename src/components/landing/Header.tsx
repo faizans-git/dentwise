@@ -5,24 +5,24 @@ import { Button } from "../ui/button";
 
 function Header() {
   return (
-    <nav className="fixed top-0 right-0 left-0 z-50 px-6 py-2 border-b border-border bg-background/90 backdrop-blur-md h-16 shadow-sm">
-      <div className="max-w-6xl mx-auto flex justify-between items-center h-full">
+    <nav className="fixed top-0 right-0 left-0 z-50 px-8 bg-transparent h-20 flex items-center">
+      <div className="w-full max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-3 group">
           <Image
-            src={"/logo.png"}
+            src="/logo.png"
             alt="DentWise Logo"
             width={32}
             height={32}
-            className="w-9 h-9"
+            className="w-8 h-8"
           />
-          <span className="font-bold text-lg tracking-tight text-foreground">
-            DentWise
+          <span className="font-bold text-xl tracking-tight text-[#2D3139]">
+            DentCare
           </span>
         </Link>
 
         {/* Nav Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {[
             { label: "How it Works", href: "#how-it-works" },
             { label: "Pricing", href: "#pricing" },
@@ -31,7 +31,7 @@ function Header() {
             <a
               key={href}
               href={href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-150"
+              className="text-[15px] font-medium text-[#4A4E57] hover:text-[#2D3139] transition-colors duration-150"
             >
               {label}
             </a>
@@ -39,23 +39,19 @@ function Header() {
         </div>
 
         {/* Auth Buttons */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-8">
           <SignInButton mode="modal">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-sm font-medium text-foreground hover:bg-secondary hover:text-foreground"
-            >
+            <button className="text-[15px] font-medium text-[#2D3139] hover:opacity-80 transition-opacity cursor-pointer">
               Log in
-            </Button>
+            </button>
           </SignInButton>
 
           <SignUpButton mode="modal">
             <Button
-              size="sm"
-              className="text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5"
+              size="lg"
+              className="text-[15px] font-medium bg-[#C87A53] hover:bg-[#B36942] text-white rounded-2xl px-6 py-2.5 h-auto shadow-none normal-case transition-colors duration-150"
             >
-              Sign Up
+              Sign up
             </Button>
           </SignUpButton>
         </div>

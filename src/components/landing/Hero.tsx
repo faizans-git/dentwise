@@ -1,148 +1,254 @@
 import { SignUpButton } from "@clerk/nextjs";
 import { Button } from "../ui/button";
-import { CalendarIcon, MicIcon, StarIcon } from "lucide-react";
+import {
+  CalendarIcon,
+  MicIcon,
+  StarIcon,
+  BookOpenIcon,
+  UserIcon,
+  SendIcon,
+} from "lucide-react";
 import Image from "next/image";
 
 function Hero() {
   return (
-    <section className="relative h-screen flex items-center overflow-hidden pt-20">
-      {/* GRID BG  */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/5 to-primary/5">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-20"></div>
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
+      {/* ── Warm background blobs ── */}
+      <div className="absolute inset-0 -z-10">
+        {/* large cream blob top-right */}
+        <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/30 blur-3xl" />
+        {/* small terracotta glow bottom-left */}
+        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-primary/8 blur-3xl" />
       </div>
 
-      {/* GRADIENT ORBS */}
-      <div className="absolute top-20 left-1/4 w-72 h-72 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-gradient-to-r from-primary/15 to-primary/5 rounded-full blur-3xl" />
-
-      <div className="relative z-10 w-full px-6">
+      <div className="relative z-10 w-full px-6 py-12">
         <div className="max-w-7xl mx-auto">
-          <div className="grid mt-4 sm:gap-4 lg:mt-12  lg:grid-cols-2  lg:gap-16 items-center">
-            {/* LEFT CONTENT */}
-            <div className="space-y-10">
-              <div className="space-y-6">
-                {/* BADGE */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-primary/5 rounded-full border border-primary/20 backdrop-blur-sm ">
-                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-primary">
-                    AI-Powered Dental Assistant
-                  </span>
-                </div>
-
-                {/* MAIN HEADING */}
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-                  <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
-                    Your dental
-                  </span>
-                  <br />
-                  <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                    questions
-                  </span>
-                  <br />
-                  <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
-                    answered instantly
-                  </span>
-                </h1>
-
-                {/* SUBTITLE */}
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-xl font-medium">
-                  Chat with our AI dental assistant for instant advice, book smart appointments, and
-                  get personalized care recommendations. Available 24/7.
-                </p>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* ── LEFT CONTENT ── */}
+            <div className="space-y-8">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/25">
+                <svg
+                  className="w-3.5 h-3.5 text-primary"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path d="M8 1l1.5 3 3.5.5-2.5 2.5.5 3.5L8 9l-3 1.5.5-3.5L3 4.5 6.5 4z" />
+                </svg>
+                <span className="text-sm font-medium text-primary">
+                  AI-Powered Dental Assistant
+                </span>
               </div>
 
-              {/* CTA BUTTONS */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* Heading */}
+              <h1 className="text-5xl md:text-6xl lg:text-[4rem] font-bold tracking-tight leading-[1.1]">
+                <span className="text-foreground">Trusted dental</span>
+                <br />
+                <span className="text-primary">guidance</span>
+                <span className="text-foreground">,</span>
+                <br />
+                <span className="text-foreground">available anytime.</span>
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-base text-muted-foreground leading-relaxed max-w-md">
+                Get instant answers to your dental questions, book appointments,
+                and receive personalized oral care recommendations.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3">
                 <SignUpButton mode="modal">
-                  <Button size={"lg"}>
-                    <MicIcon className="mr-2 size-5" />
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-7 gap-2"
+                  >
+                    <MicIcon className="size-4" />
                     Try voice agent
                   </Button>
                 </SignUpButton>
 
                 <SignUpButton mode="modal">
-                  <Button size={"lg"} variant={"outline"}>
-                    <CalendarIcon className="mr-2 size-5" />
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full px-7 gap-2 border-border text-foreground hover:bg-secondary"
+                  >
+                    <CalendarIcon className="size-4" />
                     Book appointment
                   </Button>
                 </SignUpButton>
               </div>
 
-              {/* USER TESTIMONIALS */}
-              <div className="pt-8">
-                <div className="flex items-center gap-6  ">
-                  {/* USER AVATARS */}
-                  <div className="flex -space-x-3 sm:basis-1/3 lg:mx-6 ">
+              {/* Social proof */}
+              <div className="flex items-center gap-5 pt-2">
+                <div className="flex -space-x-3">
+                  {[
+                    {
+                      src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+                      alt: "Patient 1",
+                    },
+                    {
+                      src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face",
+                      alt: "Patient 2",
+                    },
+                    {
+                      src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face",
+                      alt: "Patient 3",
+                    },
+                    {
+                      src: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=100&h=100&fit=crop&crop=face",
+                      alt: "Patient 4",
+                    },
+                    {
+                      src: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=100&h=100&fit=crop&crop=face",
+                      alt: "Patient 5",
+                    },
+                  ].map((p) => (
                     <Image
-                      src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face"
-                      alt="Jessica Davis"
-                      width={48}
-                      height={48}
-                      className="w-12 h-12 rounded-full object-cover ring-4 ring-background"
+                      key={p.src}
+                      src={p.src}
+                      alt={p.alt}
+                      width={44}
+                      height={44}
+                      className="w-11 h-11 rounded-full object-cover ring-2 ring-background"
                     />
-                    <Image
-                      src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face"
-                      alt="Sam Miller"
-                      width={48}
-                      height={48}
-                      className="w-12 h-12 rounded-full object-cover ring-4 ring-background"
-                    />
-                    <Image
-                      src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face"
-                      alt="Anna Lopez"
-                      width={48}
-                      height={48}
-                      className="w-12 h-12 rounded-full object-cover ring-4 ring-background"
-                    />
-                    <Image
-                      src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=100&h=100&fit=crop&crop=face"
-                      alt="Mike Rodriguez"
-                      width={48}
-                      height={48}
-                      className="w-12 h-12 rounded-full object-cover ring-4 ring-background"
-                    />
-                    <Image
-                      src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=100&h=100&fit=crop&crop=face"
-                      alt="Katie Lee"
-                      width={48}
-                      height={48}
-                      className="w-12 h-12 rounded-full object-cover ring-4 ring-background"
-                    />
-                  </div>
+                  ))}
+                </div>
 
-                  {/* RATING AND STATS */}
-                  <div className="space-y-1 basis-1/3 lg:mx-6">
-                    <div className="flex items-center gap-2">
-                      <div className="flex items-center gap-1">
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <StarIcon key={star} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                        ))}
-                      </div>
-                      <span className="text-sm font-bold text-foreground">4.9/5</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      Trusted by{" "}
-                      <span className="font-semibold text-foreground">1,200+ patients</span>
-                    </p>
+                <div className="space-y-0.5">
+                  <div className="flex items-center gap-1.5">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <StarIcon
+                        key={s}
+                        className="h-3.5 w-3.5 fill-amber-400 text-amber-400"
+                      />
+                    ))}
+                    <span className="text-sm font-bold text-foreground ml-1">
+                      4.9/5
+                    </span>
                   </div>
+                  <p className="text-sm text-muted-foreground">
+                    Trusted by{" "}
+                    <span className="font-semibold text-foreground">
+                      1,200+ patients
+                    </span>
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT CONTENT - HERO IMAGE */}
+            {/* ── RIGHT CONTENT — Chat Widget ── */}
+            <div className="relative hidden lg:flex justify-center items-center">
+              {/* Warm decorative blob behind card */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-secondary/40 to-accent/10 rounded-[3rem] blur-2xl scale-110" />
 
-            <div className="relative hidden lg:pl-8 lg:flex ">
-              {/* GRADIENT ORBS */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl rotate-45 blur-xl"></div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-primary/15 to-primary/5 rounded-full blur-2xl"></div>
+              {/* Chat Card */}
+              <div className="relative w-full max-w-md bg-card rounded-3xl shadow-xl border border-border/60 overflow-hidden">
+                {/* Card Header */}
+                <div className="flex items-center justify-between px-5 py-4 border-b border-border/60">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center">
+                      <Image
+                        src="/logo.png"
+                        alt="DentWise Logo"
+                        width={8}
+                        height={8}
+                        className="w-8 h-8"
+                      />
+                    </div>
+                    <span className="font-semibold text-sm text-foreground">
+                      DentCare
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <span className="text-xs text-muted-foreground">
+                      Online
+                    </span>
+                  </div>
+                </div>
 
-              <Image
-                src={"/hero.png"}
-                alt="DentWise AI"
-                width={600}
-                height={600}
-                className="w-full h-auto"
-              />
+                {/* Messages */}
+                <div className="px-5 py-5 space-y-4 bg-muted/30">
+                  {/* User message */}
+                  <div className="flex items-end gap-2.5 justify-end">
+                    <div className="bg-card rounded-2xl rounded-br-sm px-4 py-3 max-w-[75%] shadow-sm border border-border/40">
+                      <p className="text-sm text-foreground">
+                        I have a tooth sensitivity. What can I do?
+                      </p>
+                      <p className="text-[10px] text-muted-foreground mt-1 text-right">
+                        10:30 AM ✓✓
+                      </p>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-secondary border border-border/60 flex-shrink-0 overflow-hidden">
+                      <Image
+                        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face"
+                        alt="User"
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* AI message */}
+                  <div className="flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-primary/15 flex-shrink-0 flex items-center justify-center mt-1">
+                      <Image
+                        src="/logo.png"
+                        alt="DentWise Logo"
+                        width={7}
+                        height={7}
+                        className="w-7 h-7"
+                      />
+                    </div>
+                    <div className="bg-card rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%] shadow-sm border border-border/40 space-y-2">
+                      <p className="text-sm text-foreground leading-relaxed">
+                        Tooth sensitivity can be caused by enamel wear, gum
+                        recession, or cavities. Try using a sensitive toothpaste
+                        and avoid very hot or cold foods.
+                      </p>
+                      <p className="text-sm text-foreground leading-relaxed">
+                        If it persists, consider visiting your dentist.
+                      </p>
+                      <p className="text-[10px] text-muted-foreground">
+                        10:31 AM
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick Actions */}
+                <div className="flex items-center gap-2 px-5 py-3 border-t border-border/60 overflow-x-auto">
+                  {[
+                    { icon: CalendarIcon, label: "Book appointment" },
+                    { icon: BookOpenIcon, label: "Learn more" },
+                    { icon: UserIcon, label: "Talk to dentist" },
+                  ].map(({ icon: Icon, label }) => (
+                    <button
+                      key={label}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/70 text-xs text-muted-foreground hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-colors whitespace-nowrap flex-shrink-0"
+                    >
+                      <Icon className="w-3 h-3" />
+                      {label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Input */}
+                <div className="flex items-center gap-3 px-5 py-4 border-t border-border/60">
+                  <input
+                    type="text"
+                    placeholder="Ask anything..."
+                    className="flex-1 text-sm bg-transparent outline-none text-foreground placeholder:text-muted-foreground/60"
+                    readOnly
+                  />
+                  <button className="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0 hover:bg-primary/90 transition-colors">
+                    <SendIcon className="w-4 h-4 text-primary-foreground" />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
