@@ -134,7 +134,7 @@ function Hero() {
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-foreground">
-                          DentWise AI
+                          DentCare AI
                         </p>
                         <p className="text-xs text-muted-foreground">
                           Dental Assistant
