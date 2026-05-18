@@ -13,11 +13,9 @@ import Image from "next/image";
 function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
-      {/* ── Warm background blobs ── */}
       <div className="absolute inset-0 -z-10">
-        {/* large cream blob top-right */}
         <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/30 blur-3xl" />
-        {/* small terracotta glow bottom-left */}
+
         <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-primary/8 blur-3xl" />
       </div>
 
@@ -125,13 +123,13 @@ function Hero() {
                       />
                     ))}
                     <span className="text-sm font-bold text-foreground ml-1">
-                      4.9/5
+                      5/5
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground">
                     Trusted by{" "}
                     <span className="font-semibold text-foreground">
-                      1,200+ patients
+                      650+ patients
                     </span>
                   </p>
                 </div>
@@ -139,7 +137,7 @@ function Hero() {
             </div>
 
             {/* ── RIGHT CONTENT — Chat Widget ── */}
-            <div className="relative hidden lg:flex justify-center items-center">
+            <div className="relative hidden lg:flex justify-center items-center ">
               {/* Warm decorative blob behind card */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-secondary/40 to-accent/10 rounded-[3rem] blur-2xl scale-110" />
 

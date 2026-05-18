@@ -7,21 +7,23 @@ import Footer from "@/components/landing/Footer";
 import WhatToAsk from "@/components/landing/WhatToAsk";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import About from "@/components/landing/About";
 
 export default async function Home() {
   const user = await currentUser();
 
-  if (user) redirect("/dashboard")
+  if (user) redirect("/dashboard");
 
   return (
     <div className="min-h-screen bg-background">
-        <Header />
-        <Hero /> 
-        <HowItWorks />
-        <WhatToAsk />
-        <PricingSection />
-        <CTA />
-        <Footer />
+      <Header />
+      <Hero />
+      <HowItWorks />
+      <WhatToAsk />
+      <PricingSection />
+      <CTA />
+      <About />
+      <Footer />
     </div>
   );
 }
