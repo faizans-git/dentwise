@@ -4,7 +4,7 @@ import { CalendarIcon, MicIcon, PhoneIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 
 const waveHeights = [
-  2, 4, 7, 5, 9, 6, 8, 3, 10, 7, 5, 9, 4, 8, 3, 6, 4, 7, 5, 3,
+  3, 5, 7, 9, 10, 9, 7, 5, 3, 4, 6, 8, 10, 8, 6, 4, 3, 5, 7, 6,
 ];
 
 function Hero() {
@@ -35,17 +35,16 @@ function Hero() {
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-[4rem] font-bold tracking-tight leading-[1.1]">
-                <span className="text-foreground">Trusted dental</span>
+                <span className="text-foreground">Your dental health</span>
                 <br />
-                <span className="text-primary">guidance</span>
-                <span className="text-foreground">,</span>
-                <br />
-                <span className="text-foreground">available anytime.</span>
+                <span className="text-foreground">starts with a </span>
+                <span className="text-primary">conversation.</span>
               </h1>
 
               <p className="text-base text-muted-foreground leading-relaxed max-w-md">
-                Get instant answers to your dental questions, book appointments,
-                and receive personalized oral care recommendations.
+                Get instant dental guidance from our AI voice assistant then
+                book your appointment online and pay securely, all in one place.
+                No calls, no queues, no hassle.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
@@ -112,12 +111,12 @@ function Hero() {
             </div>
 
             {/* ── RIGHT — Animated voice card ── */}
-            <div className="relative hidden lg:flex justify-center items-center pointer-events-none select-none">
+            <div className="relative hidden lg:flex justify-center items-center select-none cursor-default">
               {/* Soft glow blob */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/6 via-secondary/50 to-primary/4 rounded-[4rem] blur-3xl scale-105" />
 
               {/* Floating card */}
-              <div className="animate-float relative w-full max-w-[360px]">
+              <div className="animate-float relative w-full max-w-[360px] transition-transform duration-300 ease-out hover:scale-[1.03]">
                 {/* ── Main card ── */}
                 <div className="bg-card/95 backdrop-blur-sm rounded-3xl shadow-lg border border-border/50 overflow-hidden">
                   {/* Header */}
@@ -163,7 +162,6 @@ function Hero() {
                           style={{
                             height: `${h * 4}px`,
                             animationDelay: `${i * 0.06}s`,
-                            animationDuration: `${0.9 + (i % 3) * 0.2}s`,
                           }}
                         />
                       ))}
