@@ -20,9 +20,9 @@ export default async function Home() {
       <Hero />
       <HowItWorks />
       <WhatToAsk />
+      <About />
       <PricingSection />
       <CTA />
-      <About />
       <Footer />
     </div>
   );
