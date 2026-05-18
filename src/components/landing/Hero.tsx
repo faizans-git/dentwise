@@ -1,28 +1,23 @@
 import { SignUpButton } from "@clerk/nextjs";
 import { Button } from "../ui/button";
-import {
-  CalendarIcon,
-  MicIcon,
-  StarIcon,
-  BookOpenIcon,
-  UserIcon,
-  SendIcon,
-} from "lucide-react";
+import { CalendarIcon, MicIcon, PhoneIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
+
+const waveHeights = [3, 6, 9, 5, 8, 4, 7, 3, 6, 9, 5, 7, 4, 8, 3, 6, 5];
 
 function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
+      {/* Warm background blobs */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/30 blur-3xl" />
-
-        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-primary/8 blur-3xl" />
+        <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-primary/8 via-accent/8 to-secondary/30 blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-primary/6 blur-3xl" />
       </div>
 
       <div className="relative z-10 w-full px-6 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* ── LEFT CONTENT ── */}
+            {/* ── LEFT ── */}
             <div className="space-y-8">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/25">
@@ -54,7 +49,7 @@ function Hero() {
                 and receive personalized oral care recommendations.
               </p>
 
-              {/* CTA Buttons */}
+              {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <SignUpButton mode="modal">
                   <Button
@@ -65,7 +60,6 @@ function Hero() {
                     Try voice agent
                   </Button>
                 </SignUpButton>
-
                 <SignUpButton mode="modal">
                   <Button
                     size="lg"
@@ -113,7 +107,6 @@ function Hero() {
                     />
                   ))}
                 </div>
-
                 <div className="space-y-0.5">
                   <div className="flex items-center gap-1.5">
                     {[1, 2, 3, 4, 5].map((s) => (
@@ -123,128 +116,100 @@ function Hero() {
                       />
                     ))}
                     <span className="text-sm font-bold text-foreground ml-1">
-                      5/5
+                      4.9/5
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground">
                     Trusted by{" "}
                     <span className="font-semibold text-foreground">
-                      650+ patients
+                      1,200+ patients
                     </span>
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* ── RIGHT CONTENT — Chat Widget ── */}
-            <div className="relative hidden lg:flex justify-center items-center ">
-              {/* Warm decorative blob behind card */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-secondary/40 to-accent/10 rounded-[3rem] blur-2xl scale-110" />
+            {/* ── RIGHT — Voice call card (decorative, pointer-events-none) ── */}
+            <div className="relative hidden lg:flex justify-center items-center pointer-events-none select-none">
+              {/* blob behind card */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/6 via-secondary/40 to-accent/8 rounded-[3rem] blur-2xl scale-110" />
 
-              {/* Chat Card */}
-              <div className="relative w-full max-w-md bg-card rounded-3xl shadow-xl border border-border/60 overflow-hidden">
-                {/* Card Header */}
+              <div className="relative w-full max-w-sm bg-card rounded-3xl shadow-xl border border-border/60 overflow-hidden">
+                {/* Header */}
                 <div className="flex items-center justify-between px-5 py-4 border-b border-border/60">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <Image
                         src="/logo.png"
-                        alt="DentWise Logo"
-                        width={8}
-                        height={8}
-                        className="w-8 h-8"
-                      />
-                    </div>
-                    <span className="font-semibold text-sm text-foreground">
-                      DentCare
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-green-500" />
-                    <span className="text-xs text-muted-foreground">
-                      Online
-                    </span>
-                  </div>
-                </div>
-
-                {/* Messages */}
-                <div className="px-5 py-5 space-y-4 bg-muted/30">
-                  {/* User message */}
-                  <div className="flex items-end gap-2.5 justify-end">
-                    <div className="bg-card rounded-2xl rounded-br-sm px-4 py-3 max-w-[75%] shadow-sm border border-border/40">
-                      <p className="text-sm text-foreground">
-                        I have a tooth sensitivity. What can I do?
-                      </p>
-                      <p className="text-[10px] text-muted-foreground mt-1 text-right">
-                        10:30 AM ✓✓
-                      </p>
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-secondary border border-border/60 flex-shrink-0 overflow-hidden">
-                      <Image
-                        src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face"
-                        alt="User"
-                        width={32}
-                        height={32}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-
-                  {/* AI message */}
-                  <div className="flex items-start gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-primary/15 flex-shrink-0 flex items-center justify-center mt-1">
-                      <Image
-                        src="/logo.png"
-                        alt="DentWise Logo"
-                        width={7}
-                        height={7}
+                        alt="DentWise"
+                        width={28}
+                        height={28}
                         className="w-7 h-7"
                       />
                     </div>
-                    <div className="bg-card rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%] shadow-sm border border-border/40 space-y-2">
-                      <p className="text-sm text-foreground leading-relaxed">
-                        Tooth sensitivity can be caused by enamel wear, gum
-                        recession, or cavities. Try using a sensitive toothpaste
-                        and avoid very hot or cold foods.
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">
+                        DentWise AI
                       </p>
-                      <p className="text-sm text-foreground leading-relaxed">
-                        If it persists, consider visiting your dentist.
+                      <p className="text-xs text-muted-foreground">
+                        Dental Assistant
                       </p>
-                      <p className="text-[10px] text-muted-foreground">
-                        10:31 AM
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <span className="text-xs text-muted-foreground">Live</span>
+                  </div>
+                </div>
+
+                {/* Waveform */}
+                <div className="px-6 py-6 bg-muted/20 flex flex-col items-center gap-3">
+                  <div className="flex items-center justify-center gap-1 h-12">
+                    {waveHeights.map((h, i) => (
+                      <div
+                        key={i}
+                        className="w-1 rounded-full bg-primary/50 animate-sound-wave"
+                        style={{
+                          height: `${h * 4}px`,
+                          animationDelay: `${i * 0.07}s`,
+                        }}
+                      />
+                    ))}
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    AI is speaking…
+                  </p>
+                </div>
+
+                {/* Transcript snippet */}
+                <div className="px-5 py-4 space-y-3 border-t border-border/60">
+                  <div className="flex justify-end">
+                    <div className="bg-primary/12 border border-primary/20 rounded-2xl rounded-tr-sm px-3.5 py-2 max-w-[80%]">
+                      <p className="text-xs leading-relaxed text-primary">
+                        I have a tooth sensitivity. What can I do?
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2.5">
+                    <div className="w-6 h-6 rounded-full bg-primary/10 flex-shrink-0 flex items-center justify-center mt-0.5">
+                      <MicIcon className="w-3 h-3 text-primary" />
+                    </div>
+                    <div className="bg-muted/50 rounded-2xl rounded-tl-sm px-3.5 py-2 max-w-[85%]">
+                      <p className="text-xs text-foreground leading-relaxed">
+                        That's often caused by enamel wear. Try a sensitive
+                        toothpaste and avoid very hot or cold foods.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Quick Actions */}
-                <div className="flex items-center gap-2 px-5 py-3 border-t border-border/60 overflow-x-auto">
-                  {[
-                    { icon: CalendarIcon, label: "Book appointment" },
-                    { icon: BookOpenIcon, label: "Learn more" },
-                    { icon: UserIcon, label: "Talk to dentist" },
-                  ].map(({ icon: Icon, label }) => (
-                    <button
-                      key={label}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/70 text-xs text-muted-foreground hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-colors whitespace-nowrap flex-shrink-0"
-                    >
-                      <Icon className="w-3 h-3" />
-                      {label}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Input */}
-                <div className="flex items-center gap-3 px-5 py-4 border-t border-border/60">
-                  <input
-                    type="text"
-                    placeholder="Ask anything..."
-                    className="flex-1 text-sm bg-transparent outline-none text-foreground placeholder:text-muted-foreground/60"
-                    readOnly
-                  />
-                  <button className="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0 hover:bg-primary/90 transition-colors">
-                    <SendIcon className="w-4 h-4 text-primary-foreground" />
-                  </button>
+                {/* Call footer */}
+                <div className="flex items-center justify-between px-6 py-4 border-t border-border/60">
+                  <div className="text-xs text-muted-foreground">00:32</div>
+                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                    <PhoneIcon className="w-4 h-4 text-red-400 rotate-[135deg]" />
+                  </div>
+                  <div className="text-xs text-muted-foreground">Muted</div>
                 </div>
               </div>
             </div>
