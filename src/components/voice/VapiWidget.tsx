@@ -20,7 +20,8 @@ function VapiWidget() {
   // auto-scroll for messages
   useEffect(() => {
     if (messageContainerRef.current) {
-      messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
+      messageContainerRef.current.scrollTop =
+        messageContainerRef.current.scrollHeight;
     }
   }, [messages]);
 
@@ -111,7 +112,8 @@ function VapiWidget() {
           <span className="text-primary uppercase">AI Dental Assistant</span>
         </h1>
         <p className="text-muted-foreground mt-2">
-          Have a voice conversation with our AI assistant for dental advice and guidance
+          Have a voice conversation with our AI assistant for dental advice and
+          guidance
         </p>
       </div>
 
@@ -165,8 +167,10 @@ function VapiWidget() {
               </div>
             </div>
 
-            <h2 className="text-xl font-bold text-foreground">DentWise AI</h2>
-            <p className="text-sm text-muted-foreground mt-1">Dental Assistant</p>
+            <h2 className="text-xl font-bold text-foreground">DentCare AI</h2>
+            <p className="text-sm text-muted-foreground mt-1">
+              Dental Assistant
+            </p>
 
             {/* SPEAKING INDICATOR */}
             <div
@@ -184,17 +188,19 @@ function VapiWidget() {
                 {isSpeaking
                   ? "Speaking..."
                   : callActive
-                  ? "Listening..."
-                  : callEnded
-                  ? "Call ended"
-                  : "Waiting..."}
+                    ? "Listening..."
+                    : callEnded
+                      ? "Call ended"
+                      : "Waiting..."}
               </span>
             </div>
           </div>
         </Card>
 
         {/* USER CARD */}
-        <Card className={`bg-card/90 backdrop-blur-sm border overflow-hidden relative`}>
+        <Card
+          className={`bg-card/90 backdrop-blur-sm border overflow-hidden relative`}
+        >
           <div className="aspect-video flex flex-col items-center justify-center p-6 relative">
             {/* User Image */}
             <div className="relative size-32 mb-4">
@@ -209,11 +215,15 @@ function VapiWidget() {
 
             <h2 className="text-xl font-bold text-foreground">You</h2>
             <p className="text-sm text-muted-foreground mt-1">
-              {user ? (user.firstName + " " + (user.lastName || "")).trim() : "Guest"}
+              {user
+                ? (user.firstName + " " + (user.lastName || "")).trim()
+                : "Guest"}
             </p>
 
             {/* User Ready Text */}
-            <div className={`mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-card border`}>
+            <div
+              className={`mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-card border`}
+            >
               <div className={`w-2 h-2 rounded-full bg-muted`} />
               <span className="text-xs text-muted-foreground">Ready</span>
             </div>
@@ -229,9 +239,12 @@ function VapiWidget() {
         >
           <div className="space-y-3">
             {messages.map((msg, index) => (
-              <div key={index} className="message-item animate-in fade-in duration-300">
+              <div
+                key={index}
+                className="message-item animate-in fade-in duration-300"
+              >
                 <div className="font-semibold text-xs text-muted-foreground mb-1">
-                  {msg.role === "assistant" ? "DentWise AI" : "You"}:
+                  {msg.role === "assistant" ? "DentCare AI" : "You"}:
                 </div>
                 <p className="text-foreground">{msg.content}</p>
               </div>
@@ -239,8 +252,12 @@ function VapiWidget() {
 
             {callEnded && (
               <div className="message-item animate-in fade-in duration-300">
-                <div className="font-semibold text-xs text-primary mb-1">System:</div>
-                <p className="text-foreground">Call ended. Thank you for using DentWise AI!</p>
+                <div className="font-semibold text-xs text-primary mb-1">
+                  System:
+                </div>
+                <p className="text-foreground">
+                  Call ended. Thank you for using DentCare AI!
+                </p>
               </div>
             )}
           </div>
@@ -254,8 +271,8 @@ function VapiWidget() {
             callActive
               ? "bg-destructive hover:bg-destructive/90"
               : callEnded
-              ? "bg-red-500 hover:bg-red-700"
-              : "bg-primary hover:bg-primary/90"
+                ? "bg-red-500 hover:bg-red-700"
+                : "bg-primary hover:bg-primary/90"
           } text-white relative`}
           onClick={toggleCall}
           disabled={connecting || callEnded}
@@ -268,10 +285,10 @@ function VapiWidget() {
             {callActive
               ? "End Call"
               : connecting
-              ? "Connecting..."
-              : callEnded
-              ? "Call Ended"
-              : "Start Call"}
+                ? "Connecting..."
+                : callEnded
+                  ? "Call Ended"
+                  : "Start Call"}
           </span>
         </Button>
       </div>

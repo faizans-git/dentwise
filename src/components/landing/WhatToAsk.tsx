@@ -29,7 +29,7 @@ const questions = [
 const transcript = [
   {
     from: "ai",
-    text: "Hi! I'm your DentWise assistant. What dental concern can I help you with today?",
+    text: "Hi! I'm your DentCare assistant. What dental concern can I help you with today?",
   },
   {
     from: "user",
@@ -125,7 +125,7 @@ function WhatToAsk() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-foreground">
-                      DentWise AI
+                      DentCare AI
                     </p>
                     <p className="text-xs text-muted-foreground">
                       Dental Assistant

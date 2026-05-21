@@ -97,13 +97,13 @@ function Hero() {
                       />
                     ))}
                     <span className="text-sm font-bold text-foreground ml-1">
-                      4.9/5
+                      5/5
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground">
                     Trusted by{" "}
                     <span className="font-semibold text-foreground">
-                      1,200+ patients
+                      650+ patients
                     </span>
                   </p>
                 </div>
@@ -125,7 +125,7 @@ function Hero() {
                       <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                         <Image
                           src="/logo.png"
-                          alt="DentWise"
+                          alt="DentCare"
                           width={28}
                           height={28}
                           className="w-7 h-7"

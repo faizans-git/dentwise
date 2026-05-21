@@ -28,7 +28,7 @@ function Header() {
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/logo.png"
-            alt="DentWise Logo"
+            alt="DentCare Logo"
             width={32}
             height={32}
             className="w-8 h-8"

@@ -62,7 +62,7 @@ function About() {
             </h2>
 
             <p className="text-base text-muted-foreground leading-relaxed">
-              DentWise was built on a simple frustration: too many people skip
+              DentCare was built on a simple frustration: too many people skip
               dental care because getting answers is slow, expensive, or
               inconvenient. We set out to fix that with an AI assistant that
               gives instant, trustworthy guidance — and connects you to a

@@ -19,14 +19,14 @@ export async function POST(request: Request): Promise<NextResponse> {
     if (!userEmail || !doctorName || !appointmentDate || !appointmentTime) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     const { error } = await resend.emails.send({
-      from: "DentWise <no-reply@resend.dev>",
+      from: "DentCare <no-reply@resend.dev>",
       to: [userEmail],
-      subject: "Appointment Confirmation - DentWise",
+      subject: "Appointment Confirmation - DentCare",
       react: AppointmentConfirmationEmail({
         doctorName,
         appointmentDate,
@@ -41,7 +41,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       console.error("Resend error:", error);
       return NextResponse.json(
         { error: "Failed to send email" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -50,7 +50,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     console.error("Unexpected error:", error);
     return NextResponse.json(
       { error: "An unexpected error occurred" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
